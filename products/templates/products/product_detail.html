@@ -1,0 +1,55 @@
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ product.name }}</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+</head>
+
+<body>
+
+<div class="product-container">
+
+    <div class="product-image">
+
+        {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        {% endif %}
+
+    </div>
+
+    <div class="product-info">
+
+        <h1 class="product-title">{{ product.name }}</h1>
+        
+
+        <div class="info-box">
+            <strong>وزن:</strong>
+            {{ product.weight }}
+        </div>
+
+        <div class="description">
+
+            <h3>توضیحات محصول</h3>
+
+            <p>
+                {{ product.description }}
+            </p>
+
+        </div>
+        <a href="{% url 'carts:add_to_cart' product.id %}">
+        <button class="buy-btn">
+             🛒 افزودن به سبد خرید
+        </button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>حساب کاربری</title>
+
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+</head>
+
+<body>
+
+<div class="auth-container">
+
+    <!-- تب‌ها (فقط UI) -->
+    <div class="auth-tabs">
+
+        <button id="loginBtn" class="tab-btn active">
+            ورود
+        </button>
+
+        <button id="registerBtn" class="tab-btn">
+            ثبت نام
+        </button>
+
+    </div>
+
+
+
+    <!-- فرم ثبت نام -->
+<div id="registerForm" class="form-box hidden">
+
+    <h2>ایجاد حساب کاربری</h2>
+
+    <form method="post" action="">
+        {% csrf_token %}
+
+        <label>نام کاربری</label>
+        {{ register_form.username }}
+
+        <label>ایمیل</label>
+        {{ register_form.email }}
+
+        <label>شماره تماس</label>
+        {{ register_form.phone }}
+
+        <label>آدرس</label>
+        {{ register_form.address }}
+
+        <label>رمز عبور</label>
+        {{ register_form.password1 }}
+
+{#        <label>تکرار رمز عبور</label>#}
+{#        {{ register_form.password2 }}#}
+
+        <button type="submit" name="register_submit">
+            ثبت نام
+        </button>
+
+    </form>
+
+</div>
+
+
+<!-- فرم ورود -->
+<div id="loginForm" class="form-box">
+
+    <h2>ورود به حساب</h2>
+
+    <form method="post" action="">
+        {% csrf_token %}
+
+        <label>نام کاربری</label>
+        {{ login_form.username }}
+
+        <label>رمز عبور</label>
+        {{ login_form.password }}
+
+        <button type="submit" name="login_submit">
+            ورود
+        </button>
+
+    </form>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+const loginBtn = document.getElementById("loginBtn");
+const registerBtn = document.getElementById("registerBtn");
+
+const loginForm = document.getElementById("loginForm");
+const registerForm = document.getElementById("registerForm");
+
+loginBtn.onclick = () => {
+
+    loginForm.classList.remove("hidden");
+    registerForm.classList.add("hidden");
+
+    loginBtn.classList.add("active");
+    registerBtn.classList.remove("active");
+};
+
+registerBtn.onclick = () => {
+
+    registerForm.classList.remove("hidden");
+    loginForm.classList.add("hidden");
+
+    registerBtn.classList.add("active");
+    loginBtn.classList.remove("active");
+};
+</script>
+
+</body>
+</html>

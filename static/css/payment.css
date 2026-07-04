@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Vazirmatn, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: radial-gradient(circle at top right, #1b4332, #0b1d13);
+    color: #fff;
+}
+
+/* باکس اصلی */
+.payment-box {
+    width: 420px;
+
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 211, 107, 0.25);
+    border-radius: 18px;
+
+    padding: 28px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+
+    animation: fadeUp 0.4s ease;
+}
+
+/* عنوان */
+.payment-box h2 {
+    text-align: center;
+    margin-bottom: 18px;
+
+    color: #ffd36b;
+    font-size: 20px;
+}
+
+/* آیتم‌های سبد */
+.payment-box div {
+    padding: 10px 0;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 14px;
+}
+
+/* خط جداکننده */
+.payment-box hr {
+    border: none;
+    height: 1px;
+
+    margin: 15px 0;
+
+    background: rgba(255, 211, 107, 0.2);
+}
+
+/* مبلغ نهایی */
+.payment-box h3 {
+    text-align: center;
+    margin-bottom: 18px;
+
+    color: #ffd36b;
+    font-size: 18px;
+}

@@ -1,0 +1,92 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>
+        نتایج جستجو
+    </title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/search_results.css' %}">
+
+</head>
+
+<body>
+
+<h1 class="page-title">
+
+    نتایج جستجو برای
+    "{{ query }}"
+
+</h1>
+
+{% if products %}
+
+<div class="products-grid">
+
+    {% for product in products %}
+
+    <a href="{% url 'products:product_detail' product.slug %}"
+       class="product-card">
+
+        <img src="{{ product.image.url }}"
+             alt="{{ product.name }}">
+
+        <div class="product-content">
+
+            <h3>
+                {{ product.name }}
+            </h3>
+
+            <p class="price">
+                {{ product.price|intcomma }}
+                تومان
+            </p>
+
+        </div>
+
+    </a>
+
+    {% endfor %}
+
+</div>
+
+{% else %}
+
+<div class="not-found">
+
+    <h2>
+        محصولی پیدا نشد
+    </h2>
+
+    <p>
+        عبارت دیگری را جستجو کنید.
+    </p>
+
+</div>
+
+{% endif %}
+
+{% if not query %}
+
+
+{% elif products %}
+
+    <!-- نمایش محصولات -->
+
+{% else %}
+
+<h2>
+محصولی پیدا نشد
+</h2>
+
+{% endif %}
+
+</body>
+</html>

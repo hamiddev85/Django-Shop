@@ -1,0 +1,67 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>سفارشات من</title>
+
+    <link rel="stylesheet" href="{% static 'css/orders.css' %}">
+</head>
+
+<body>
+
+<div class="orders-wrapper">
+
+    <h2 class="title">سفارش‌های من</h2>
+
+    {% for order in orders %}
+
+        <div class="order-card">
+
+            <div class="order-header">
+                <h3>سفارش شماره {{ order.id }}</h3>
+                <span class="date">{{ order.created_at|date:"Y/m/d - H:i" }}</span>
+            </div>
+
+            <div class="order-items">
+
+                <ul>
+                    {% for item in order.items.all %}
+                        <li>
+                            <span class="product-name">
+                                {{ item.product.name }}
+                            </span>
+
+                            <span class="qty">
+                                × {{ item.quantity }}
+                            </span>
+
+                            <span class="price">
+                                {{ item.price|intcomma }} تومان
+                            </span>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+
+            <div class="order-footer">
+                <strong>
+                    جمع کل: {{ order.total_price|intcomma }} تومان
+                </strong>
+            </div>
+
+        </div>
+
+    {% empty %}
+
+        <p class="empty">هنوز سفارشی ثبت نکرده‌اید.</p>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

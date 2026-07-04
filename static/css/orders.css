@@ -1,0 +1,196 @@
+body {
+    font-family: Vazirmatn, sans-serif;
+    margin: 0;
+    padding: 0;
+
+    background: radial-gradient(circle at top right, #1b4332, #0b1d13);
+    color: #fff;
+}
+
+/* عنوان صفحه */
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    color: #ffd36b;
+    font-size: 30px;
+}
+
+/* کانتینر کلی */
+.orders-wrapper {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+/* کارت سفارش */
+.order-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 211, 107, 0.2);
+    border-radius: 16px;
+
+    padding: 20px;
+    margin-bottom: 18px;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+
+    transition: 0.3s ease;
+}
+
+.order-card:hover {
+    transform: translateY(-5px);
+    border-color: #ffd36b;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+/* شماره سفارش */
+.order-card h3 {
+    color: #ffd36b;
+    margin-bottom: 10px;
+}
+
+/* متن‌ها */
+.order-card p {
+    margin: 6px 0;
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+}
+
+/* قیمت */
+.price {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* حالت خالی */
+.empty {
+    text-align: center;
+    margin-top: 80px;
+    color: rgba(255,255,255,0.6);
+    font-size: 18px;
+}
+
+/* Order success */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Vazirmatn,sans-serif;
+}
+
+body{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(circle at top right,#1b4332,#0b1d13);
+}
+
+.success-container{
+    width:500px;
+    max-width:90%;
+
+    text-align:center;
+
+    padding:45px 35px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,215,120,.25);
+
+    border-radius:24px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.4);
+
+    animation:fadeUp .5s ease;
+}
+
+.success-icon{
+    width:90px;
+    height:90px;
+
+    margin:0 auto 25px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:42px;
+    font-weight:bold;
+
+    color:white;
+
+    background:
+    linear-gradient(135deg,#2d6a4f,#40916c);
+
+    box-shadow:
+    0 10px 30px rgba(64,145,108,.35);
+}
+
+.success-container h1{
+    color:#ffd36b;
+
+    font-size:30px;
+
+    margin-bottom:18px;
+}
+
+.success-container p{
+    color:rgba(255,255,255,.85);
+
+    line-height:2;
+
+    margin-bottom:30px;
+}
+
+.success-btn{
+    display:inline-block;
+
+    text-decoration:none;
+
+    padding:14px 28px;
+
+    border-radius:14px;
+
+    background:
+    linear-gradient(135deg,#ffd36b,#b8860b);
+
+    color:#1b1b1b;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.success-btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 12px 25px rgba(255,211,107,.35);
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}

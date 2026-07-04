@@ -1,0 +1,160 @@
+body{
+    background:
+        linear-gradient(
+            rgb(253 143 27 / 0.95),
+            rgb(255 255 255 / 0.87)
+        ),
+        url("../img/ChatGPT Image Jun 14, 2026, 10_16_36 AM.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    margin:0;
+    font-family:tahoma;
+    color:#222;
+}
+/* کانتینر اصلی */
+.product-container{
+    width:90%;
+    max-width:1200px;
+    margin:60px auto;
+
+    display:flex;
+    gap:50px;
+
+    align-items:flex-start;
+}
+
+/* تصویر */
+.product-image{
+    flex:1;
+}
+
+.product-image img{
+    width:100%;
+    border-radius:18px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+
+    transition:.35s ease;
+}
+
+.product-image img:hover{
+    transform:scale(1.04);
+    box-shadow:0 18px 40px rgba(0,0,0,.18);
+}
+
+/* اطلاعات */
+.product-info{
+    flex:1;
+}
+
+/* عنوان */
+.product-title{
+    font-size:36px;
+    color:#1f3b2c;
+    margin-bottom:18px;
+}
+
+/* قیمت */
+.price-box{
+    display:inline-flex;
+    gap:8px;
+
+    background:#fff;
+    padding:12px 18px;
+    border-radius:12px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.06);
+}
+
+.price-label{
+    color:#555;
+}
+
+.price-value{
+    font-weight:bold;
+    color:#d4af37;
+    font-size:20px;
+}
+
+/* اطلاعات (وزن، موجودی) */
+.info-box{
+    background:#fff;
+    padding:14px 16px;
+    margin-bottom:12px;
+
+    border-radius:12px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+
+    transition:.25s;
+}
+
+.info-box:hover{
+    transform:translateY(-2px);
+}
+
+/* توضیحات */
+.description{
+    background:#fff;
+    padding:20px;
+    margin-top:20px;
+
+    border-radius:15px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
+}
+
+.description h3{
+    margin-top:0;
+    color:#1f3b2c;
+}
+
+/* دکمه خرید */
+.buy-btn{
+    margin-top:25px;
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:17px;
+    font-weight:bold;
+
+    color:white;
+
+    background:linear-gradient(135deg,#1f3b2c,#3f6b4d);
+
+    box-shadow:0 10px 25px rgba(31,59,44,.3);
+
+    transition:.3s ease;
+}
+
+.buy-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(31,59,44,.4);
+}
+
+.buy-btn:active{
+    transform:scale(.98);
+}
+
+/* ریسپانسیو */
+@media (max-width:900px){
+    .product-container{
+        flex-direction:column;
+        gap:25px;
+    }
+
+    .product-title{
+        font-size:28px;
+    }
+}

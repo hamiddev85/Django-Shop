@@ -1,0 +1,121 @@
+{% load humanize %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>سبد خرید</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+</head>
+
+<body>
+
+<div class="cart-container">
+
+    <h1 class="cart-title">
+        سبد خرید شما
+    </h1>
+
+    <table class="cart-table">
+
+        <thead>
+            <tr>
+                <th>محصول</th>
+                <th>تعداد</th>
+                <th>قیمت واحد</th>
+                <th>جمع</th>
+                <th>حذف</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for item in cart_items %}
+
+            <tr>
+
+                <td class="product-cell">
+
+                    <img src="{{ item.product.image.url }}"
+                         alt="{{ item.product.name }}">
+
+                    <span>
+                        {{ item.product.name }}
+                    </span>
+
+                </td>
+
+                <td>
+                <span>{{ item.quantity }}</span>
+                </td>
+
+                <td>
+                    {{ item.product.price|intcomma }}
+                    تومان
+                </td>
+
+                <td>
+                    {{ item.total_price|intcomma }}
+                    تومان
+                </td>
+
+                <td>
+                <a href="{% url 'carts:remove_from_cart' item.id %}"
+                   class="remove-btn">
+
+                 حذف
+
+                </a>
+
+                </td>
+
+            </tr>
+
+            {% empty %}
+
+            <tr>
+
+                <td colspan="5">
+
+                    سبد خرید شما خالی است.
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    <div class="cart-summary">
+
+        <div class="total-price">
+
+            جمع کل:
+
+            <span>
+
+                {{ total_price|intcomma }}
+
+                تومان
+
+            </span>
+
+        </div>
+
+        <a href="{% url 'payment:payment' %}" class="btn">
+          ثبت سفارش
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

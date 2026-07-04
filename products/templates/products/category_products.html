@@ -1,0 +1,73 @@
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ category.name }}</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        🌿 عطاری آنلاین
+    </div>
+
+    <ul class="menu">
+        <li>
+            <a href="{% url 'products:home' %}" class="home-btn">
+    🏠 بازگشت به خانه
+             </a>
+        </li>
+    </ul>
+
+</nav>
+
+<div class="category-title">
+
+    <h1>{{ category.name }}</h1>
+
+    <div class="title-line"></div>
+
+</div>
+
+<div class="products-grid">
+
+    {% for product in products %}
+
+        <div class="product-card">
+
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="">
+            {% endif %}
+
+            <h3>{{ product.name }}</h3>
+
+            <p class="price">
+                {{ product.price|intcomma }} تومان
+            </p>
+
+            <a href="{% url 'products:product_detail' product.slug %}">
+                مشاهده محصول
+            </a>
+
+        </div>
+
+    {% empty %}
+
+        <h2>
+            محصولی در این دسته‌بندی وجود ندارد.
+        </h2>
+
+    {% endfor %}
+
+</div>
+
+</body>
+
+</html>

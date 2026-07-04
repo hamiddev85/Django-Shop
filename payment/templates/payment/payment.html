@@ -1,0 +1,37 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title> تایید سفارش </title>
+    <link rel="stylesheet" href="{% static 'css/payment.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+</head>
+
+<body>
+
+<div class="payment-box">
+
+    <h2>تایید سفارش</h2>
+
+    {% for item in items %}
+        <div>
+            {{ item.product.name }} -
+            {{ item.quantity }} × {{ item.product.price | intcomma }}
+        </div>
+    {% endfor %}
+
+    <hr>
+
+    <h3>مبلغ نهایی: {{ total_price | intcomma}} تومان</h3>
+
+    <a href="{% url 'payment:payment_confirm' %}" class="btn">
+        پرداخت و ثبت سفارش
+    </a>
+
+</div>
+
+</body>
+</html>
