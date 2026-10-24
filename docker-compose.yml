@@ -1,0 +1,18 @@
+services:
+  web:
+    build: .
+    container_name: django_shop_web
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      DB_PATH: /app/data/db.sqlite3
+    volumes:
+      - django_shop_data:/app/data
+    restart: unless-stopped
+    command: python manage.py runserver 0.0.0.0:8000
+
+volumes:
+  django_shop_data:
+    external: true
